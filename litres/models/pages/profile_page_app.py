@@ -46,7 +46,7 @@ class ProfilePage(HomePage):
         return self
 
     def check_language_change(self, text):
-        browser.element(f'[resource-id="ru.litres.android:id/spinner_value"]').should(have.text(f'{text}'))
+        browser.element((AppiumBy.ID, "ru.litres.android:id/spinner_value")).should(have.text(f'{text}'))
         return self
 
     def open_promotion(self):

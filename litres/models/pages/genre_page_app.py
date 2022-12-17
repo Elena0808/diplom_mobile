@@ -30,7 +30,7 @@ class GenrePage:
         return self
 
     def check_open_genre(self):
-        browser.element('[resource-id="ru.litres.android:id/subgenreTitleTextView"]')\
+        browser.element((AppiumBy.ID, "ru.litres.android:id/subgenreTitleTextView"))\
             .should(have.text('Biographies and memoirs'))
         return self
 
