@@ -52,4 +52,5 @@ def driver_management_remote():
 
     yield
     attach.add_video(browser)
+    attach.add_screenshot(browser)
     browser.quit()
