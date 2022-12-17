@@ -9,7 +9,7 @@ from selene.support.shared import browser
 from utils import attach
 
 
-@pytest.fixture(scope='function', autouse=True)
+@pytest.fixture(scope='function', autouse=False)
 def driver_management_local():
     load_dotenv()
     option = UiAutomator2Options().load_capabilities({
@@ -28,7 +28,7 @@ def driver_management_local():
     browser.quit()
 
 
-@pytest.fixture(scope='function', autouse=False)
+@pytest.fixture(scope='function', autouse=True)
 def driver_management_remote():
     load_dotenv()
     options = UiAutomator2Options().load_capabilities({
