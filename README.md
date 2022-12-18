@@ -25,14 +25,15 @@
 
 ## Используемый стек
 <p align="center">
-<img width="6%" title="Python" src="images/python.svg">
-<img width="6%" title="PyCharm" src="images/pycharm.svg">
-<img width="6%" title="Selene" src="images/selene.png">
-<img width="6%" title="PyTest" src="images/pytest.svg">
-<img width="6%" title="GitHub" src="images/github.svg">
-<img width="6%" title="Jenkins" src="images/jenkins.svg">
-<img width="6%" title="Browserstack" src="images/browserstack.svg">
-<img width="6%" title="Appium" src="images/appium.svg">
-<img width="6%" title="Android-studio" src="images/android-studio.svg">
-<img width="6%" title="Allure" src="images/allure.svg">
+<code><img width="6%" title="Python" src="images/python.svg"></code>
+<code><img width="6%" title="PyCharm" src="images/pycharm.svg"></code>
+<code><img width="6%" title="Selene" src="images/selene.png"></code>
+<code><img width="6%" title="PyTest" src="images/pytest.svg"></code>
+<code><img width="6%" title="GitHub" src="images/github.svg"></code>
+<code><img width="6%" title="Jenkins" src="images/jenkins.svg"></code>
+<code><img width="6%" title="Browserstack" src="images/browserstack.svg"></code>
+<code><img width="6%" title="Appium" src="images/appium.svg"></code>
+<code><img width="6%" title="Android-studio" src="images/android-studio.svg"></code>
+<code><img width="6%" title="Allure" src="images/allure.svg"></code>
 </p>
+
