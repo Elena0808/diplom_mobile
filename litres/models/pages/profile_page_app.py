@@ -1,13 +1,8 @@
 import os
-import time
 from enum import Enum
-
 from selene import have, be
 from selene.support.shared import browser
-from typing import Tuple
-from litres.models.data.data_profile import Languages
 from appium.webdriver.common.appiumby import AppiumBy
-
 from litres.models.pages.home_page_app import HomePage
 
 
@@ -26,7 +21,7 @@ class ProfilePage(HomePage):
         return self
 
     def check_login(self):
-        browser.element('[resource-id="ru.litres.android:id/user_name"]').should(have.text('Registered reader'))
+        browser.element((AppiumBy.ID, 'ru.litres.android:id/user_name')).should(have.text('Registered reader'))
         browser.element((AppiumBy.ID, 'ru.litres.android:id/user_login')).should(have.text('autotest123@rambler.ru'))
         browser.element((AppiumBy.ID, 'ru.litres.android:id/add_money_button')).should(be.visible)
         return self
