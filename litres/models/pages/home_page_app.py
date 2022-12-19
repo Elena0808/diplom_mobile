@@ -16,8 +16,17 @@ class HomePage:
         browser.element((AppiumBy.ID, 'ru.litres.android:id/btnEnableAdultContent')).click()
         return self
 
+    def read_information(self):
+        browser.element((AppiumBy.ID, 'ru.litres.android:id/btn_onboarding_litres_app_next')).click()
+        browser.element((AppiumBy.ID, 'ru.litres.android:id/btn_onboarding_litres_app_next')).click()
+        return self
+
+    def no_adult_content(self):
+        browser.element((AppiumBy.ID, 'ru.litres.android:id/btnDisableAdultContent')).click()
+        browser.element((AppiumBy.ID, 'ru.litres.android:id/btnConfirmDisableAdultContent')).click()
+        return self
+
     def select_language(self):
-        #browser.element((AppiumBy.))
         browser.element((AppiumBy.ID, 'ru.litres.android:id/choosebutton')).click()
         return self
 
@@ -25,7 +34,7 @@ class HomePage:
         browser.element((AppiumBy.ID, 'ru.litres.android:id/btn_onboarding_litres_app_skip')).click()
         return self
 
-    def adult_content(self):
+    def with_adult_content(self):
         browser.element((AppiumBy.ID, 'ru.litres.android:id/btnEnableAdultContent')).click()
         time.sleep(10)
         return self
@@ -42,7 +51,7 @@ class HomePage:
     def open_genre_page(self):
         browser.element((AppiumBy.XPATH,
                          '//android.widget.LinearLayout[@content-desc="Genres"]/android.widget.TextView')).click()
-        time.sleep(20)
+        time.sleep(15)
         return self
 
     def open_search(self):

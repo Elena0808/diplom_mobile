@@ -1,4 +1,6 @@
 import os
+import time
+
 import allure
 import pytest
 from appium.options.android import UiAutomator2Options
@@ -54,3 +56,4 @@ def driver_management_remote():
     attach.add_video(browser)
     attach.add_screenshot(browser)
     browser.quit()
+    time.sleep(5)

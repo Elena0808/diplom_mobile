@@ -1,7 +1,7 @@
 import time
 
 from appium.webdriver.common.appiumby import AppiumBy
-from selene import be
+from selene import be, have
 from selene.support.shared import browser
 from litres.models.pages.home_page_app import HomePage
 
@@ -23,4 +23,13 @@ class SearchPage(HomePage):
         time.sleep(8)
         browser.element((AppiumBy.XPATH, '//android.widget.LinearLayout[@content-desc="All results"]/android'
                                          '.widget.TextView')).should(be.visible)
+        return self
+
+    def add_to_shelved(self):
+        browser.element((AppiumBy.XPATH, '(//android.widget.ImageView[@content-desc="Add to shelved"])[1]')).click()
+        return self
+
+    def check_add_to_shelved(self):
+        browser.element((AppiumBy.XPATH, '//android.widget.ImageView[@content-desc="Remove from shelved"]'))\
+            .should(be.visible)
         return self

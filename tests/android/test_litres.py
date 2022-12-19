@@ -9,15 +9,44 @@ from litres.models.data.data_profile import Languages
 @allure.severity(Severity.BLOCKER)
 @allure.label('owner', 'Elena0808')
 @allure.description('Главная страница')
-@allure.story('Открытие главной страницы')
+@allure.story('Открытие главной страницы cо взрослым контентом')
 def test_open_home_page():
-    with allure.step('Открываем приложение, выбираем язык и закрываем предупреждение'):
+    with allure.step('Открываем приложение, выбираем язык и проставляем согласие на взрослый контент'):
         app.home_page.select_language() \
             .skip_info() \
-            .adult_content()
+            .with_adult_content()
     with allure.step('Проверяем открытие главной страницы'):
         app.home_page.check_open_home_page()
 
+
+@allure.tag('mobile')
+@allure.severity(Severity.BLOCKER)
+@allure.label('owner', 'Elena0808')
+@allure.description('Главная страница')
+@allure.story('Открытие главной страницы без взрослого контента')
+def test_open_home_page_not_adult():
+    with allure.step('Открываем приложение и выбираем язык'):
+        app.home_page.select_language() \
+            .skip_info()
+    with allure.step('Проставляем отказ от показа взрослого контента'):
+        app.home_page.no_adult_content()
+    with allure.step('Проверяем открытие главной страницы'):
+        app.home_page.check_open_home_page()
+
+
+@allure.tag('mobile')
+@allure.severity(Severity.BLOCKER)
+@allure.label('owner', 'Elena0808')
+@allure.description('Главная страница')
+@allure.story('Пролистывание информации')
+def test_scroll_information():
+    with allure.step('Открываем приложение и выбираем язык'):
+        app.home_page.select_language()
+    with allure.step('Пролистываем информацию о навигации в приложении'):
+        app.home_page.read_information()\
+            .with_adult_content()
+    with allure.step('Проверяем открытие главной страницы'):
+        app.home_page.check_open_home_page()
 
 @allure.tag('mobile')
 @allure.severity(Severity.CRITICAL)
@@ -95,3 +124,36 @@ def test_open_promotion():
         app.profile_page.open_promotion()
     with allure.step('Проверяю, что страница открыта'):
         app.profile_page.check_open_promotion_page()
+
+
+@allure.tag('mobile')
+@allure.severity(Severity.NORMAL)
+@allure.label('owner', 'Elena0808')
+@allure.description('Нотификация"')
+@allure.story('Проверка включения нотификации')
+def test_enabled_notification():
+    with allure.step('Открываю приложение и перехожу на главную страницу'):
+        app.home_page.open_home_page()
+    with allure.step('Перехожу на страницу профиля и открываю раздел нотификации'):
+        app.profile_page.open_profile()\
+            .open_notifications()
+    with allure.step('Включаю нотификацию'):
+        app.profile_page.enabled_notifications()
+    with allure.step('Проверяю включение нотификации'):
+        app.profile_page.check_enabled_notifications()
+
+
+@allure.tag('mobile')
+@allure.severity(Severity.NORMAL)
+@allure.label('owner', 'Elena0808')
+@allure.description('Отложенное"')
+@allure.story('Добавление книги в отложенное')
+def test_add_to_shelved():
+    with allure.step('Открываю приложение и перехожу на главную страницу'):
+        app.home_page.open_home_page()
+    with allure.step(f'Вводим в строку поиска название книги {data_search_book_app.search_book_name}'):
+        app.search_page.search_book(data_search_book_app.search_book_name)
+    with allure.step('Добавляю книгу в отложенное'):
+        app.search_page.add_to_shelved()
+    with allure.step('Проверяю добавление книги в отложенное'):
+        app.search_page.check_add_to_shelved()

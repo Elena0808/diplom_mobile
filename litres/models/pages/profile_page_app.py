@@ -44,6 +44,19 @@ class ProfilePage(HomePage):
         browser.element((AppiumBy.ID, "ru.litres.android:id/spinner_value")).should(have.text(f'{text}'))
         return self
 
+    def open_notifications(self):
+        browser.element((AppiumBy.ID, 'ru.litres.android:id/new_profile_notifications')).click()
+        return self
+
+    def enabled_notifications(self):
+        browser.element((AppiumBy.ID, 'ru.litres.android:id/enablePush')).click()
+        return self
+
+    def check_enabled_notifications(self):
+        browser.element((AppiumBy.ID, 'ru.litres.android:id/tvSnackbarMessage'))\
+            .should(have.text('Notifications enabled'))
+        return self
+
     def open_promotion(self):
         browser.element((AppiumBy.ID, 'ru.litres.android:id/new_profile_bonuses')).click()
         return self
