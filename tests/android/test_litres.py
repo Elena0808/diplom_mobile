@@ -1,4 +1,5 @@
 import allure
+import pytest
 from allure_commons.types import Severity
 from litres.models import app
 from litres.models.data import data_search_book_app
@@ -79,6 +80,7 @@ def test_search_book():
         app.search_page.check_search()
 
 
+@pytest.mark.skip('для локального запуска')
 @allure.tag('mobile')
 @allure.severity(Severity.NORMAL)
 @allure.label('owner', 'Elena0808')
