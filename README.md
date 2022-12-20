@@ -32,3 +32,8 @@
 <code><img width="6%" title="Allure" src="images/allure.svg"></code>
 </p>
 
+## Сборка в Jenkins
+
+## Allure report
+
+## Пример прохождения тестов
