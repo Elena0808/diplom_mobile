@@ -44,11 +44,13 @@ def test_scroll_information():
     with allure.step('Открываем приложение и выбираем язык'):
         app.home_page.select_language()
     with allure.step('Пролистываем информацию о навигации в приложении'):
-        app.home_page.read_information()\
+        app.home_page.read_information() \
             .with_adult_content()
     with allure.step('Проверяем открытие главной страницы'):
         app.home_page.check_open_home_page()
 
+
+@pytest.mark.skip('Для локального запуска')
 @allure.tag('mobile')
 @allure.severity(Severity.CRITICAL)
 @allure.label('owner', 'Elena0808')
@@ -137,7 +139,7 @@ def test_enabled_notification():
     with allure.step('Открываю приложение и перехожу на главную страницу'):
         app.home_page.open_home_page()
     with allure.step('Перехожу на страницу профиля и открываю раздел нотификации'):
-        app.profile_page.open_profile()\
+        app.profile_page.open_profile() \
             .open_notifications()
     with allure.step('Включаю нотификацию'):
         app.profile_page.enabled_notifications()
