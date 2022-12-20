@@ -48,7 +48,7 @@ def driver_management_remote():
             "accessKey": os.getenv('accessKey')
         }
     })
-    browser.config.timeout = float(os.getenv('selene.timeout', '18'))
+    browser.config.timeout = float(os.getenv('selene.timeout', '25'))
     browser.config.driver = webdriver.Remote(
         "http://hub.browserstack.com/wd/hub", options=options)
 
